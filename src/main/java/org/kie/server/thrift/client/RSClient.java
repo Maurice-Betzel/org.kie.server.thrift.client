@@ -61,7 +61,7 @@ public class RSClient {
         webTarget.register(jaxRsAuthenticator);
         kieServicesRequest = new KieServicesRequest();
         kieServicesRequest.setKieServicesClient(kieServicesClient);
-        response = webTarget.request().accept("application/x-thrift").header("Content-Type", "application/x-thrift").get(KieServicesResponse.class);
+        response = webTarget.request().accept(APPLICATION_XTHRIFT).header("Content-Type", APPLICATION_XTHRIFT).get(KieServicesResponse.class);
         System.out.println(response);
 
         // ListContainersTest
@@ -70,7 +70,7 @@ public class RSClient {
         webTarget.register(ThriftMessageReader.class);
         webTarget.register(ThriftMessageWriter.class);
         webTarget.register(jaxRsAuthenticator);
-        response = webTarget.request().accept("application/x-thrift").header("Content-Type", "application/x-thrift").get(KieServicesResponse.class);
+        response = webTarget.request().accept(APPLICATION_XTHRIFT).header("Content-Type", APPLICATION_XTHRIFT).get(KieServicesResponse.class);
         System.out.println(response);
 
         // ContainerInfoTest
@@ -79,7 +79,7 @@ public class RSClient {
         webTarget.register(ThriftMessageReader.class);
         webTarget.register(ThriftMessageWriter.class);
         webTarget.register(jaxRsAuthenticator);
-        response = webTarget.request().accept("application/x-thrift").header("Content-Type", "application/x-thrift").get(KieServicesResponse.class);
+        response = webTarget.request().accept(APPLICATION_XTHRIFT).header("Content-Type", APPLICATION_XTHRIFT).get(KieServicesResponse.class);
         System.out.println(response);
 
         // ContainerExecuteTest
@@ -161,7 +161,7 @@ public class RSClient {
 
         kieServicesRequest.setBatchExecutionCommand(batchExecutionCommand);
 
-        Entity<KieServicesRequest> entity = Entity.entity(kieServicesRequest, "application/x-thrift");
+        Entity<KieServicesRequest> entity = Entity.entity(kieServicesRequest, APPLICATION_XTHRIFT);
         response = webTarget.request(APPLICATION_XTHRIFT).post(entity, KieServicesResponse.class);
         System.out.println(response);
         if (response.getResponse().isSetKieServicesException()) {
