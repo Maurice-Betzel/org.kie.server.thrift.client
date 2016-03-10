@@ -55,7 +55,8 @@ public class RSClient {
 
         // ServerInfoTest
 
-        ResteasyWebTarget webTarget = resteasyClient.target("http://localhost:8080").path("/kie-server/services/rest/server/thrift");
+        String host = "http://localhost:8080";
+        ResteasyWebTarget webTarget = resteasyClient.target(host).path("/kie-server/services/rest/server/thrift");
         webTarget.register(ThriftMessageReader.class);
         webTarget.register(ThriftMessageWriter.class);
         webTarget.register(jaxRsAuthenticator);
@@ -66,7 +67,7 @@ public class RSClient {
 
         // ListContainersTest
 
-        webTarget = resteasyClient.target("http://localhost:8080").path("/kie-server/services/rest/server/thrift/containers");
+        webTarget = resteasyClient.target(host).path("/kie-server/services/rest/server/thrift/containers");
         webTarget.register(ThriftMessageReader.class);
         webTarget.register(ThriftMessageWriter.class);
         webTarget.register(jaxRsAuthenticator);
@@ -75,7 +76,7 @@ public class RSClient {
 
         // ContainerInfoTest
 
-        webTarget = resteasyClient.target("http://localhost:8080").path("/kie-server/services/rest/server/thrift/containers/test");
+        webTarget = resteasyClient.target(host).path("/kie-server/services/rest/server/thrift/containers/test");
         webTarget.register(ThriftMessageReader.class);
         webTarget.register(ThriftMessageWriter.class);
         webTarget.register(jaxRsAuthenticator);
@@ -84,7 +85,7 @@ public class RSClient {
 
         // ContainerExecuteTest
 
-        webTarget = resteasyClient.target("http://localhost:8080").path("/kie-server/services/rest/server/thrift/containers/instances/test/testStatelessKieSession");
+        webTarget = resteasyClient.target(host).path("/kie-server/services/rest/server/thrift/containers/instances/test/testStatelessKieSession");
         webTarget.register(ThriftMessageReader.class);
         webTarget.register(ThriftMessageWriter.class);
         webTarget.register(jaxRsAuthenticator);
