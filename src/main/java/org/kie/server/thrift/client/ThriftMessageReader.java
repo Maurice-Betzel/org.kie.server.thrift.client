@@ -23,6 +23,7 @@ import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TCompactProtocol;
 import org.apache.thrift.protocol.TProtocolFactory;
 import org.jboss.resteasy.util.ReadFromStream;
+import org.kie.server.thrift.io.StreamReader;
 import org.kie.server.thrift.protocol.KieServicesResponse;
 
 import javax.ws.rs.Consumes;
@@ -61,7 +62,7 @@ public class ThriftMessageReader implements MessageBodyReader<KieServicesRespons
     public KieServicesResponse readFrom(Class<KieServicesResponse> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, String> httpHeaders, InputStream entityStream) throws IOException, WebApplicationException {
         TDeserializer tDeserializer = null;
         KieServicesResponse KieServicesResponse = new KieServicesResponse();
-        byte[] bytes = ReadFromStream.readFromStream(1024, entityStream);
+        byte[] bytes = StreamReader.readFromStream(1024, entityStream);
         try {
             tDeserializer = pollTDeserializer();
             tDeserializer.deserialize(KieServicesResponse, bytes);

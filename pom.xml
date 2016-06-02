@@ -24,7 +24,7 @@
 
     <groupId>org.kie.server.thrift</groupId>
     <artifactId>client</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <name>KIE :: Execution Server :: RSClient</name>
     <description>KIE Execution Server RSClient</description>
@@ -54,7 +54,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <libthrift.version>0.9.2</libthrift.version>
         <resteasy.version>3.0.10.Final</resteasy.version>
-        <kie.version>6.4.0.Beta2</kie.version>
+        <kie.version>6.4.0.Final</kie.version>
         <slf4j.version>1.7.2</slf4j.version>
         <jdk.version>1.7</jdk.version>
         <jdk.target>1.7</jdk.target>
@@ -79,12 +79,12 @@
         <dependency>
             <groupId>org.kie.server</groupId>
             <artifactId>kie-server-protocol</artifactId>
-            <version>6.4.0.0.Beta2</version>
+            <version>6.4.0.0.Final</version>
         </dependency>
         <dependency>
             <groupId>org.kie.server</groupId>
             <artifactId>kie-server-java</artifactId>
-            <version>6.4.0.0.Beta2</version>
+            <version>6.4.0.0.Final</version>
         </dependency>
         <dependency>
             <groupId>org.apache.thrift</groupId>
@@ -125,19 +125,6 @@
                     <mainClass>org.kie.server.thrift.client.RSClient</mainClass>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.kie</groupId>-->
-                <!--<artifactId>kie-maven-plugin</artifactId>-->
-                <!--<version>${kie.version}</version>-->
-                <!--<extensions>true</extensions>-->
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.slf4j</groupId>-->
-                        <!--<artifactId>slf4j-simple</artifactId>-->
-                        <!--<version>${slf4j.version}</version>-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
