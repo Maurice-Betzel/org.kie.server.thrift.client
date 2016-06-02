@@ -33,7 +33,6 @@ import org.kie.server.thrift.client.facts.Global;
 import org.kie.server.thrift.client.facts.Message;
 
 import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.*;
 import java.nio.ByteBuffer;
 
 import static org.kie.server.thrift.protocol.protocolConstants.APPLICATION_XTHRIFT;
@@ -49,7 +48,6 @@ public class RSClient {
         ResteasyClientBuilder resteasyClientBuilder = new ResteasyClientBuilder();
         ResteasyClient resteasyClient = resteasyClientBuilder.build();
         JaxRsAuthenticator jaxRsAuthenticator = new JaxRsAuthenticator("ks-user", "ks-user");
-        //JaxRsAuthenticator jaxRsAuthenticator = new JaxRsAuthenticator("ks-user", "aqu2TeiYo5vi");
         KieServicesClient kieServicesClient = new KieServicesClient();
         kieServicesClient.setClient("Test RSClient");
         KieServicesRequest kieServicesRequest;
@@ -57,30 +55,7 @@ public class RSClient {
 
         // ServerInfoTest
 
-        //String host = "http://kie-app01.hmm.lan:8080";
         String host = "http://localhost:8080";
-
-        //ResteasyWebTarget webTarget = resteasyClient.target(host).path("/kie-server/services/rest/server");
-        //ResteasyWebTarget webTarget = resteasyClient.target(host).path("/kie-server/services/rest/server/thrift");
-
-//        webTarget.register(jaxRsAuthenticator);
-//        webTarget.register(ThriftMessageReader.class);
-//        webTarget.register(ThriftMessageWriter.class);
-
-//        long start = System.currentTimeMillis();
-//        int i;
-//        for(i = 0; i < 10000; i++) {
-//            javax.ws.rs.core.Response object = webTarget.request().accept(MediaType.APPLICATION_XML).get();
-//            //response = webTarget.request().accept(APPLICATION_XTHRIFT).header("Content-Type", APPLICATION_XTHRIFT).get(KieServicesResponse.class);
-//            //System.out.println(object.readEntity(String.class));
-//            //System.out.println(response);
-//            object.close();
-//        }
-//        System.out.println(System.currentTimeMillis()-start);
-//        System.exit(0);
-
-
-
         ResteasyWebTarget webTarget = resteasyClient.target(host).path("/kie-server/services/rest/server/thrift");
         webTarget.register(ThriftMessageReader.class);
         webTarget.register(ThriftMessageWriter.class);

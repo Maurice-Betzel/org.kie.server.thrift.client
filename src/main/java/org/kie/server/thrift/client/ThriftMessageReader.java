@@ -22,7 +22,6 @@ import org.apache.thrift.TDeserializer;
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TCompactProtocol;
 import org.apache.thrift.protocol.TProtocolFactory;
-import org.jboss.resteasy.util.ReadFromStream;
 import org.kie.server.thrift.io.StreamReader;
 import org.kie.server.thrift.protocol.KieServicesResponse;
 
